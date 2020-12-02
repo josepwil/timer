@@ -1,4 +1,3 @@
-const { clear } = require('console');
 const process = require('process');
 const readline = require('readline')
 
@@ -20,13 +19,14 @@ rl.on('line', (data) => {
 );
 
 rl.on('SIGINT', () => {
-  process.stdout.write('Thanks for using me, ciao!\n');
+  process.stdout.write('\nThanks for using me, ciao!\n');
   rl.close();
 })
 
 process.stdin.on('keypress', (c) => {
  if (c == 'b') {
   process.stdout.write('\x07');
+  rl.clearLine(process.stdout, 0)
 }
 })
 
